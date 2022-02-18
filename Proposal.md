@@ -1,15 +1,11 @@
-# Phish Net
+# PhishNet
 
 ===========
 [https://github.com/aidan-lane/oss-term-project](https://github.com/aidan-lane/oss-term-project)
 
 Overview
 --------
-The **UNK** project is a code representation of the unknown. This project will seek to encapsulate in code the complete knowledge of what we don't know and don't care about. We believe that by encapsulating everything we don't know and then systematically removing lines of code, we will make what is unknown smaller and by extension increase what is known.
-
-This will be a systematic exploration. We will start by manually encoding some unknowns by ourselves and use this as a template for crowdsourcing to extend this data.
-
-Once we reach a critical mass of unknowing, we will begin removing some of the unknown code from the repository to enable us to begin knowing more. One of the expected side effects is that this process will reveal some things we didn't know we didn't know and help us to complete the survey of the unknown.
+The most common security issue amongst companies all across the countries is phishing scams. Constant training is conducted within companies' security teams, however it seemingly makes no difference. Technology professionals are more versed in the world of identifying scams when it comes to phishing, however workers in high speed jobs such as nurses and surgeons, do not have time to analyze every email they receieve. We are proposing a safety net between the user and the link they are clicking. Before a page can redirect after a link is clicked, PhishNet will run the link through a virus scanner and return a safety score. If the score is above a certain threshold, users will be warned before they are allowed to redirect to the page. This takes away the responsibility of the user from having to analyze every link they click while still protecting them from hasty decisions.
 
 Semester Plan
 -------------
@@ -17,7 +13,7 @@ Obviously, capturing all that is unknown by everyone is a monumental task that w
 
 Technology
 ----------
-This project will be built as a Chrome extension which primarily uses JavaScript, HTML, and CSS. In addition to these languages, we will also being using a backend written in either JavaScript or Python (Flask/Django) to interface with a PostgresSQL Database.
+Since this is an unknown project, we are not completely sure what technology stack we will be using. We expect to use the **APL** programming language, or perhaps **x86 assembler** given their high unknowability. 
 
 Team
 ----
