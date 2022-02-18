@@ -24,7 +24,10 @@ Team
 ----
 | **Name** | **GitHub Handle** | **Email** |
 |:------:|:-------:|:------:|
-| Prof. Turner | wdturner | turnew2@rpi.edu | 
+| Caitlin Crowley | crowlc3 | crowlc3@rpi.edu | 
+| Ryan Kent | ryantk3nt | kentr@rpi.edu |
+| Aidan Lane | aidan-lane | lanea3@rpi.edu | 
+| Erik Roberts | robere2 | robere2@rpi.edu |
 
 Milestones
 ----------
