@@ -1,8 +1,7 @@
 # Second Chance
 
-Project Unk
 ===========
-[https://github.com/wdturner/unk](https://github.com/wdturner/unk)
+[https://github.com/aidan-lane/oss-term-project](https://github.com/aidan-lane/oss-term-project)
 
 Overview
 --------
