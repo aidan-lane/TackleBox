@@ -9,7 +9,7 @@ The most common security issue amongst companies all across the countries is phi
 
 Semester Plan
 -------------
-Obviously, capturing all that is unknown by everyone is a monumental task that will take at least 2 semesters. For this semester we will concentrate on just capturing something that is unknown by seven random strangers we have yet to meet. This will be coded into our project. We will use the process of unknowing capture and encoding to help us build a website that we can use to crowdsource more unknowns. Our semester goal is to have a beta version of the unknown website ready to preliminary testing so that we are on schedule to launch the full website next semester.
+This project was previously developed in a class called Software Design and Documentation, by the name of [Second Chance](https://github.com/gwang111/SecondChance). The project was only semi succesful, as redirects stopped only some of the times that links were detected as dangerous. PhishNet will be the new and improved version of Second Chance. The most important focus of this project will be a full stop before a page is allowed to reload. This ensures that viruses cannot be downloaded from malicious sites. We will also need to focus on making a database to hold whitelisted and blacklisted sites to make user experience easier.
 
 Technology
 ----------
