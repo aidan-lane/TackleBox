@@ -13,7 +13,7 @@ This project was previously developed in a class called Software Design and Docu
 
 Technology
 ----------
-Since this is an unknown project, we are not completely sure what technology stack we will be using. We expect to use the **APL** programming language, or perhaps **x86 assembler** given their high unknowability. 
+This project will be built as a Chrome extension which primarily uses JavaScript, HTML, and CSS. In addition to these languages, we will also being using a backend written in either JavaScript or Python (Flask/Django) to interface with a PostgresSQL Database.
 
 Team
 ----
