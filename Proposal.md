@@ -1,6 +1,7 @@
 # TackleBox
 
 ===========
+
 [https://github.com/aidan-lane/oss-term-project](https://github.com/aidan-lane/oss-term-project)
 
 Overview
@@ -9,7 +10,7 @@ The most common security issue amongst companies all across the countries is phi
 
 Semester Plan
 -------------
-This project was previously developed in a class called Software Design and Documentation, by the name of [Second Chance](https://github.com/gwang111/SecondChance). The project was only semi succesful, as redirects stopped only some of the times that links were detected as dangerous. PhishNet will be the new and improved version of Second Chance. The most important focus of this project will be a full stop before a page is allowed to reload. This ensures that viruses cannot be downloaded from malicious sites. We will also need to focus on making a database to hold whitelisted and blacklisted sites to make user experience easier.
+This project was previously developed in a class called Software Design and Documentation, by the name of [Second Chance](https://github.com/gwang111/SecondChance). The project was only semi succesful, as redirects stopped only some of the times that links were detected as dangerous. TackleBox will be the new and improved version of Second Chance. The most important focus of this project will be a full stop before a page is allowed to reload. This ensures that viruses cannot be downloaded from malicious sites. We will also need to focus on making a database to hold whitelisted and blacklisted sites to make user experience easier.
 
 Technology
 ----------
@@ -28,8 +29,8 @@ Milestones
 ----------
 Milestones are given as weeks from project start:
 
-- By Week 1 : Investigate the **Unknown** language options and choose one best suited to encapsulate what we don't know.
-- By Week 4 : Obtain unknown information on 6 things that 6 random strangers don't know.
-- By Week 7 : Have the informaton from the last stranger. We assume that strangers who don't know things will become harder to find once more people know what we are doing.
-- By Week 9: Have the seven unknowns coded into the chosen (unknown) language.
-- By Week 10 : Completely develop the website that uses deep learning and artificial intelligence to source a cooperative crowd, decide what they don't know and automatically encode it into the chosen language. 
+- By Week 2 : Familiarize ourselves with at least one of the popular browser extension APIs (Chromium, Firefox, Safari).
+- By Week 4 : Completed the basics of the user interface for the extension(s).
+- By Week 6 : Have a backend server and database set up and connected to the frontend.
+- By Week 8 : Allow users to submit feedback on flagged sites, either agreeing or dissenting with the warning.
+- By Week 10 : Port extension to remaining two browser APIs and release on app stores.
