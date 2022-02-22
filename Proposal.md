@@ -29,7 +29,7 @@ Milestones
 ----------
 Milestones are given as weeks from project start:
 
-- By Week 2 : Familiarize ourselves with at least one of the popular browser extension APIs (Chromium, Firefox, Safari).
+- By Week 2 : Familiarize ourselves with at least one of the popular browser extension APIs (Chromium, Firefox, Safari) and figure out what API(s) we are using.
 - By Week 4 : Completed the basics of the user interface for the extension(s).
 - By Week 6 : Have a backend server and database set up and connected to the frontend.
 - By Week 8 : Allow users to submit feedback on flagged sites, either agreeing or dissenting with the warning.
