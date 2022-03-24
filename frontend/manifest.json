@@ -1,13 +1,29 @@
 {
-  "name": "TackleBox",
-  "description": "Virus Scanner Chrome Extension",
-  "version": "1.0",
-  "manifest_version": 3,
-  "background": {
-    "service_worker": "background.js"
-  },
-  "permissions": ["storage"],
-  "action": {
-    "default_popup": "popup.html"
-  }
+    "manifest_version": 2,
+
+    "name": "TackleBox",
+    "description": "Malicious link detector",
+    "version": "1.0",
+
+    "icons":{
+        "128": "icons/fishing.png",
+        "48": "icons/fishing.png",
+        "16": "icons/fishing.png"
+    },
+
+    "browser_action": {
+        "default_icon": "icons/fish.jpeg",
+        "default_popup": "popup.html"
+    },
+    "permissions": [
+        "<all_urls>",
+        "webRequest",
+        "webRequestBlocking",
+        "storage",
+        "tabs"
+    ],
+    "background": {
+        "scripts": [ "jquery-3.6.0.min.js", "background.js"],
+        "persistent": true
+    }
 }
