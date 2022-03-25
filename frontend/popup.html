@@ -1,9 +1,24 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <link rel="stylesheet" href="button.css">
-  </head>
-  <body>
-    <button id="changeColor"></button>
-  </body>
+ 	<head>
+		<title>Second Chance</title>
+		<script type="text/javascript" src="jquery-3.6.0.min.js"></script>
+    	<link rel="stylesheet" type="text/css" href="style.css">
+
+	</head>
+	<body>
+        <div id="demoFont">Second Chance</div>
+        <!-- Title -->
+        <br/>
+        <div id="demoFont2">Enter Link For Whitelist</div>
+        <input id="linky" type="text">
+        <input id="whiteList" type="submit" value="Enter"/>
+        <!-- Allows user to enter whitelist link -->
+        <br/>
+        <br/>
+        <div id = "demoFont3">Link(s) last added: <span id="link">'Blank'</span></div>
+        <!-- Print last link(s) added -->
+        <div class="value">0</div>
+        <input type="range" min="0" max="10" step="1" value="0">
+  	</body>
 </html>
