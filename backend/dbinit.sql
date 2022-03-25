@@ -1,5 +1,5 @@
-CREATE TABLE IF NOT EXISTS blacklist (
-    url TEXT PRIMARY KEY NOT NULL,
+CREATE TABLE IF NOT EXISTS scan_cache (
+    urlHash VARCHAR(96) PRIMARY KEY NOT NULL,
     score INTEGER DEFAULT 0 NOT NULL,
     -- bit flag to hold category types
     -- parking    000001
