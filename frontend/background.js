@@ -19,7 +19,13 @@ chrome.runtime.onInstalled.addListener(() => {
  * @return {Boolean}
  */
 function isMalicious(url, thresh=2) {
-    return url === "";
+    let response = fetch("analysis/score")
+
+    if (response.status === 200) {
+        return url === "";
+    }
+
+    return false;
 }
 
 var curURL;  // Keep track of the current page
@@ -36,14 +42,18 @@ chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
 
 // Hook executed before page is loaded
 chrome.webRequest.onBeforeRequest.addListener((details) => {
-    print(details);
-    if (wait || !isMalicious(details.url)) 
-        return {cancel: false};;
+    // Load page if we aren't reloading within wait-time, the type is not main_frame,
+    // the url is not the same as the last url, and the link is not malicious.
+    if (wait || details.type !== "main_frame" || details.url === curURL || 
+            !isMalicious(details.url)) {
+        return {cancel: false};
+    }
 
     if (confirm("We found this website to possibly be malicious. Do you wish to continue?")) {
         return {cancel: false};
     }
 
+    // Prevent triggering this event twice
     wait = true;
     clearInterval(timer);
     timer = setInterval(function () {
