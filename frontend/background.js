@@ -1,4 +1,5 @@
-// Entry point for frontend
+// TackleBox 2022
+// Runs in background of extension
 
 // Defaults
 let color = '#3aa757';
@@ -7,25 +8,48 @@ chrome.runtime.onInstalled.addListener(() => {
     console.log('Default background color set to %cgreen', `color: ${color}`);
 });
 
-var waitTime = 1000;
+/**
+ * Determines whether the given link is malicious using the given threshold.
+ *
+ * @access private
+ *
+ * @param {String} url    url to be scored
+ * @param {Number} thresh user-set security threshold value
+ *
+ * @return {Boolean}
+ */
+function isMalicious(url, thresh=2) {
+    return url === "";
+}
+
+var curURL;  // Keep track of the current page
+
+var timer = null;
+var waitTime = 500;
 var wait = false;
 
-// Hook on before page load
+// Hook to get the current page's full URL
+chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+    var tab = tabs[0]; 
+    curURL = tab.url;
+});
+
+// Hook executed before page is loaded
 chrome.webRequest.onBeforeRequest.addListener((details) => {
-    if (wait) return;
+    print(details);
+    if (wait || !isMalicious(details.url)) 
+        return {cancel: false};;
 
-    shouldCancel = true;
-
-    console.log("test!!!!!!!!" + details.url);
-    if (confirm("We found this website to possibly be malicious. Do you want to continue?")) {
-        should_cancel = false;
+    if (confirm("We found this website to possibly be malicious. Do you wish to continue?")) {
+        return {cancel: false};
     }
 
-    wait = true
-    setTimeout(function () {
+    wait = true;
+    clearInterval(timer);
+    timer = setInterval(function () {
         wait = false;
     }, waitTime);
 
-    return {cancel: shouldCancel};
+    return {redirectUrl: curURL};
     
 }, {urls: ["<all_urls>"]}, ["blocking"]);
