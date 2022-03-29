@@ -5,7 +5,7 @@ services:
     depends_on:
       - db
     env_file: .env
-    ports: 
+    ports:
       - "8080:8080"
     volumes:
       - .:/usr/src/app/
@@ -21,7 +21,8 @@ services:
     volumes:
       # Postgres will run then initdb.sql script when started
       - ./backend/dbinit.sql:/docker-entrypoint-initdb.d/dbinit.sql
+      - ./backend/postgres-data:/var/lib/postgresql/data
     ports:
       - "5432:5432"
-  
-  
+
+
