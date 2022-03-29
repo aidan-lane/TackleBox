@@ -1,6 +1,5 @@
 node_modules/
 .env
-pgdata/
 /backend/postgres-data/
 build/
 *.zip
