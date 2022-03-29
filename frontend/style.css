@@ -1,5 +1,9 @@
 /*Styling for popup*/
 
+:root{
+    --sliderColor: orange;
+}
+
 html{
     border-bottom: 1px solid #494949;
 }
@@ -64,7 +68,7 @@ input[type="range"] {
 }
 input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none;
-  background-color: darkslategrey;
+  background-color: var(--sliderColor);
   width: 20px;
   height: 20px;
   border-radius: 50%;
