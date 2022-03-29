@@ -1,4 +1,8 @@
-# TackleBox
+<p align="center">
+  <img src="/frontend/icons/tacklebox_l.png" width=50% height=50%>
+</p>
+
+
 Term Project for Open Source Software Spring 2022
 
 ## About
