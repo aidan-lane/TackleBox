@@ -5,14 +5,15 @@
     "description": "Malicious link detector",
     "version": "1.0",
 
-    "icons":{
-        "128": "icons/fishing.png",
-        "48": "icons/fishing.png",
-        "16": "icons/fishing.png"
-    },
+    
 
     "browser_action": {
-        "default_icon": "icons/fish.jpeg",
+        "default_icon":{
+            "16": "icons/fish16.png",
+            "32": "icons/fish32.png",
+            "48": "icons/fish48.png",
+            "128": "icons/fish128.png"
+        },
         "default_popup": "popup.html"
     },
     "permissions": [
