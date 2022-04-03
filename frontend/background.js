@@ -1,12 +1,24 @@
 // TackleBox 2022
 // Runs in background of extension
 
+require("dotenv").config();
+
 // Defaults
-let color = '#3aa757';
+let color = "#3aa757";
 chrome.runtime.onInstalled.addListener(() => {
     chrome.storage.sync.set({ color });
-    console.log('Default background color set to %cgreen', `color: ${color}`);
+    console.log("Default background color set to %cgreen", `color: ${color}`);
 });
+
+const axios = require("axios").default;
+
+// Fetch URL For development
+if (process.env.NODE_ENV === "debug") {
+  axios.defaults.baseURL = "http://localhost:8080";
+}
+
+// User-set score threshold
+var threshold = 1;
 
 /**
  * Determines whether the given link is malicious using the given threshold.
@@ -19,10 +31,10 @@ chrome.runtime.onInstalled.addListener(() => {
  * @return {Boolean}
  */
 function isMalicious(url, thresh=2) {
-    let response = fetch("analysis/score")
+    let response = axios.get("/score/" + url);
 
     if (response.status === 200) {
-        return url === "";
+        return response.data.score > threshold;
     }
 
     return false;
