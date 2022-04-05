@@ -23,6 +23,7 @@ router.get("/score/*", async (req, res) => {
 	}
 
 	const apiResult = await (await fetch(apiUrl)).json();
+	console.log(apiResult);
 	if (apiResult.success) {
 		// Reformatted data to include only the relevant information for our database/end user
 		const ourData = {
