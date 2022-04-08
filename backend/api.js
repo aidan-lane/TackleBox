@@ -15,14 +15,16 @@ router.get("/score/*", async (req, res) => {
 	const cachedResult = await connection.query('SELECT * FROM scan_cache WHERE hash=$1', [urlHash]);
 	// If we have already scanned this URL then we just can return the cached response from before.
 	//  TODO: Potentially make this expire in the future?
-	if(cachedResult.rowCount > 0) {
+
+	if (cachedResult.rowCount > 0) {
 		await connection.release();
 		res.json(cachedResult.rows[0]);
 		return;
 	}
 
 	const apiResult = await (await fetch(apiUrl)).json();
-	if(apiResult.success) {
+	console.log(apiResult);
+	if (apiResult.success) {
 		// Reformatted data to include only the relevant information for our database/end user
 		const ourData = {
 			hash: urlHash,

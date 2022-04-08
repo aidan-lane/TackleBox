@@ -2,11 +2,16 @@
 // Runs in background of extension
 
 // Defaults
-let color = '#3aa757';
+let color = "#3aa757";
 chrome.runtime.onInstalled.addListener(() => {
     chrome.storage.sync.set({ color });
-    console.log('Default background color set to %cgreen', `color: ${color}`);
+    console.log("Default background color set to %cgreen", `color: ${color}`);
 });
+
+var baseURL = "http://localhost:8080/api/score/";
+
+// User-set score threshold
+var threshold = 1;
 
 /**
  * Determines whether the given link is malicious using the given threshold.
@@ -14,18 +19,25 @@ chrome.runtime.onInstalled.addListener(() => {
  * @access private
  *
  * @param {String} url    url to be scored
- * @param {Number} thresh user-set security threshold value
+ * @param {Number} thresh user-set security threshold value (1-3) with 3 being the most strict
  *
  * @return {Boolean}
  */
-function isMalicious(url, thresh=2) {
-    let response = fetch("analysis/score")
+function isMalicious(url, thresh=3) {
+    let realThresh = 0;
+    if (thresh === 3) realThresh = 75;
+    else if (thresh === 2) realThresh = 85;
+    else if (thresh === 1) realThresh = 100;
 
-    if (response.status === 200) {
-        return url === "";
-    }
-
-    return false;
+    return fetch(baseURL + encodeURIComponent(url))
+        .then(response => response.json())
+        .then(data => {
+            if (data.score >= realThresh) {
+                return true;
+            }
+            return false
+        })
+        .catch((_) => { return false; })
 }
 
 var curURL;  // Keep track of the current page
