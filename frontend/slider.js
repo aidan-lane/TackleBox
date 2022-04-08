@@ -15,6 +15,10 @@ var rangeValue = function(){
     target.innerHTML = "high";
     elem.style.setProperty('--sliderColor', "#BD1515");
   }
+  // Changes the color of the slider bar to match the threshold level
+  // either low medium or high
 }
 
 elem.addEventListener("input", rangeValue);
+
+// TODO: Add this data to a local source so it remains the users decision
