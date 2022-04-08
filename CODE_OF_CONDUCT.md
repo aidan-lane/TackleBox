@@ -24,3 +24,7 @@ Behavior that is unacceptable includes:
 ## Our responsibility
 
 The developers that work on this project have the responsibility of maintaining the behaviors that create a positive enviornment, while looking out for negative behavior. Developers on this project have the right to protect their fellow developers in cases of negative behavior directed towards them, such as rude code comments, malicious commits.
+
+## Attribution
+
+This code of conduct is adapted from........
