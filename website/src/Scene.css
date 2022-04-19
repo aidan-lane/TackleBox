@@ -1,31 +1,17 @@
-
-
-@media (min-width: 1150px) {
-    :root {
-        --dock-width: 30vw;
-    }
-}
-@media (max-width: 1149px) {
-    :root {
-        --dock-width: 50vw;
-    }
-}
-@media (max-width: 600px) {
-    :root {
-        --dock-width: 80vw;
-    }
-}
-
+@import './global_variables.css';
 .dock {
     width: var(--dock-width);
     position: absolute;
     right: 0;
+    pointer-events: none;
 }
 
 .waves {
     position: absolute;
-    top: calc(var(--dock-width) - calc(var(--dock-width) / 3));
+    top: var(--waves-start);
     width: 100vw;
+    height: 100vh;
+    overflow-x: hidden;
 }
 
 .waves-foreground {

@@ -1,0 +1,11 @@
+@import './global_variables.css';
+.doc-container {
+    background-color: #014972;
+    z-index: 3;
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    top: calc(var(--document-start));
+    width: 100%;
+    height: calc(var(--document-start) + 100vh)
+}

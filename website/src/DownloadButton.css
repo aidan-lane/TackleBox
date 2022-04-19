@@ -1,0 +1,60 @@
+@import "./global_variables.css";
+
+.download-buttons {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    z-index: 5;
+}
+
+.download-buttons img {
+    width: 100%;
+    margin-top: 5px;
+    height: 75px;
+}
+
+@media (min-width: 1150px) {
+    .download-buttons {
+        left: 50px;
+        top: 50px;
+    }
+    .download-buttons img {
+        width: auto;
+        margin-left: 15px;
+    }
+}
+
+@media(max-width: 1149px) {
+    .download-buttons img {
+        display: block;
+    }
+}
+
+@media(max-width: 600px) {
+    .download-buttons {
+        top: calc(var(--waves-start) + 10vw);
+        display: flex;
+        flex-wrap: wrap;
+        align-content: center;
+        justify-content: center;
+        width: 98.5%;
+        left: 0;
+    }
+    .download-buttons img {
+        margin-left: 5px;
+    }
+}
+
+@media(max-width: 450px) {
+    .download-buttons img {
+        display: block;
+        flex-basis: 100%;
+    }
+}
+
+@media(max-width: 400px) {
+    .download-buttons img {
+        height: auto;
+        max-width: 200px;
+    }
+}
