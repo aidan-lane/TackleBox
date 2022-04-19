@@ -1,0 +1,43 @@
+
+
+@media (min-width: 1150px) {
+    :root {
+        --dock-width: 30vw;
+    }
+}
+@media (max-width: 1149px) {
+    :root {
+        --dock-width: 50vw;
+    }
+}
+@media (max-width: 600px) {
+    :root {
+        --dock-width: 80vw;
+    }
+}
+
+.dock {
+    width: var(--dock-width);
+    position: absolute;
+    right: 0;
+}
+
+.waves {
+    position: absolute;
+    top: calc(var(--dock-width) - calc(var(--dock-width) / 3));
+    width: 100vw;
+}
+
+.waves-foreground {
+    z-index: 2;
+}
+
+.waves-background {
+    z-index: 1;
+}
+
+.waves-foreground, .waves-background {
+    position: absolute;
+    left: -2.5vw;
+    width: 105vw;
+}
