@@ -2,15 +2,15 @@
 
 .download-buttons {
     position: absolute;
-    top: 30px;
-    left: 30px;
+    top: 2vh;
+    left: 2vw;
     z-index: 5;
 }
 
 .download-buttons img {
     width: 100%;
     margin-top: 5px;
-    height: 75px;
+    height: 7.5vw;
 }
 
 @media (min-width: 1150px) {
