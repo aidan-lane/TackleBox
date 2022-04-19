@@ -9,7 +9,9 @@ function Scene() {
 			<img className="dock" src={dock} alt="scene" />
 			<div className="waves">
 				<img className="waves-foreground" src={wavesForeground} alt="scene" />
-				<img className="waves-background" src={wavesBackground} alt="scene" />
+				<div className="waves-background-container">
+					<img className="waves-background" src={wavesBackground} alt="scene" />
+				</div>
 			</div>
 		</div>
 	)
