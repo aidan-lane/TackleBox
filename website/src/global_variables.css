@@ -1,0 +1,20 @@
+@media (min-width: 1150px) {
+    :root {
+        --dock-width: 30vw;
+    }
+}
+@media (max-width: 1149px) {
+    :root {
+        --dock-width: 50vw;
+    }
+}
+@media (max-width: 600px) {
+    :root {
+        --dock-width: 80vw;
+    }
+}
+
+:root {
+    --waves-start: calc(var(--dock-width) - var(--dock-width) / 3);
+    --document-start: calc(var(--waves-start) + 28.7vw);
+}

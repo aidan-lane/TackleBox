@@ -1,0 +1,9 @@
+.App {
+  padding-top: 2vh;
+  height: 100vh;
+  background-image: linear-gradient(to bottom, #BCEBF3, #35E2FC);
+}
+
+.App-link {
+  color: #61dafb;
+}
