@@ -9,18 +9,18 @@
 
 .download-buttons img {
     width: 100%;
-    margin-top: 5px;
+    margin-top: 1vh;
     height: 7.5vw;
 }
 
 @media (min-width: 1150px) {
     .download-buttons {
-        left: 50px;
-        top: 50px;
+        left: 5vw;
+        top: 5vh;
     }
     .download-buttons img {
         width: auto;
-        margin-left: 15px;
+        margin-left: 1vw;
     }
 }
 
@@ -41,7 +41,7 @@
         left: 0;
     }
     .download-buttons img {
-        margin-left: 5px;
+        margin-left: 1vh;
     }
 }
 
@@ -55,6 +55,6 @@
 @media(max-width: 400px) {
     .download-buttons img {
         height: auto;
-        max-width: 200px;
+        max-width: 80vw;
     }
 }

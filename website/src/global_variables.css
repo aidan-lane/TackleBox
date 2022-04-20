@@ -17,8 +17,4 @@
 :root {
     --waves-start: calc(var(--dock-width) - var(--dock-width) / 3);
     --document-start: calc(var(--waves-start) + 28.7vw);
-
-    --size-sm: 600px;
-    --size-md: 850px;
-    --size-lg: 1150px;
 }

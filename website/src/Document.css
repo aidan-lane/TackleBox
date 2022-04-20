@@ -47,6 +47,6 @@ a {
 
 @media(max-width: 400px) {
     .doc-content {
-        margin-top: 100px;
+        margin-top: 40vw;
     }
 }
