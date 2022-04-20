@@ -1,0 +1,53 @@
+@import './global_variables.css';
+.dock {
+    width: var(--dock-width);
+    position: absolute;
+    right: 0;
+    pointer-events: none;
+}
+
+.waves {
+    position: absolute;
+    top: var(--waves-start);
+    width: 100vw;
+    height: 100vh;
+    overflow-x: hidden;
+}
+
+.waves-foreground {
+    z-index: 2;
+}
+
+.waves-background {
+    z-index: 1;
+    position: relative;
+    animation-timing-function: ease-in-out;
+    animation-name: bobbing;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+}
+
+.waves-background-container {
+    top: -4vw;
+}
+
+.waves-foreground, .waves-background-container {
+    position: absolute;
+    left: -2.5vw;
+}
+
+.waves-foreground, .waves-background {
+    width: 105vw;
+}
+
+@keyframes bobbing {
+    0% {
+        top: 1.3vw;
+    }
+    50% {
+        top: -1.3vw;
+    }
+    100% {
+        top: 1.3vw;
+    }
+}

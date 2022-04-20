@@ -1,4 +1,16 @@
 node_modules
+website/node_modules
 npm-debug.log
 .env
 /backend/postgres-data/
+build
+website/build
+website/README.md
+TackleBox.zip
+Proposal.md
+README.md
+create_ext.sh
+frontend
+Contribution_Guidelines.md
+CODE_OF_CONDUCT.md
+

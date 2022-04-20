@@ -1,0 +1,52 @@
+@import './global_variables.css';
+.doc-container {
+    background-color: #014972;
+    z-index: 3;
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    top: calc(var(--document-start));
+    width: 100%;
+    min-height: 100vh;
+}
+
+.doc-content {
+    color: white;
+    font-family: 'Akshar', sans-serif;
+}
+
+.open-source {
+    text-align: center;
+}
+
+h1 {
+    font-size: 3em;
+}
+h2 {
+    font-size: 2em;
+}
+p {
+    font-size: 1.25em;
+}
+a {
+    color: #27dafc;
+}
+@media (min-width: 601px) {
+    .doc-content {
+        margin-top: -20vw;
+        padding-left: 10vw;
+        padding-right: 10vw;
+    }
+}
+@media (max-width: 600px) {
+    .doc-content {
+        padding-left: 3vw;
+        padding-right: 3vw;
+    }
+}
+
+@media(max-width: 400px) {
+    .doc-content {
+        margin-top: 40vw;
+    }
+}
