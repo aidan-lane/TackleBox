@@ -11,6 +11,7 @@
     width: 100%;
     margin-top: 1vh;
     height: 7.5vw;
+    filter: drop-shadow(0.5vw 0.5vw 0.5vw #00000050);
 }
 
 @media (min-width: 1150px) {

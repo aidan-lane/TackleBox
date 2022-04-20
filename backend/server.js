@@ -2,12 +2,15 @@ const express = require("express");
 
 // Routes
 const apiRouter = require('./api');
+const path = require("path");
 
 const app = express();
 const port = process.env.PORT ?? 8080;
 
 // Use external routes
 app.use('/api', apiRouter);
+
+app.use(express.static(path.join(__dirname, '..', 'website', 'build')))
 
 app.get("/", async (req, res) => {
   res.setHeader("Content-Type", "text/html");
