@@ -1,14 +1,20 @@
 // TackleBox 2022
 // Runs in background of extension
 
-// Defaults
-let color = "#3aa757";
-chrome.runtime.onInstalled.addListener(() => {
-    chrome.storage.sync.set({ color });
-    console.log("Default background color set to %cgreen", `color: ${color}`);
-});
+// Get slider info from popup
+var sliderVal = 3;
+var views = chrome.extension.getViews();
+console.log(views);
 
-var baseURL = "http://localhost:8080/api/score/";
+// Change backend API url based on if we're in devlopment or not
+const IS_DEV_MODE = !("update_url" in chrome.runtime.getManifest());
+var baseURL = "";
+
+if (IS_DEV_MODE) {
+    baseURL = "http://localhost:8080/api/score/";
+} else {
+    baseURL = "https://tacklebox-server.herokuapp.com/api/score/";
+}
 
 // User-set score threshold
 var threshold = 1;
@@ -54,10 +60,12 @@ chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
 
 // Hook executed before page is loaded
 chrome.webRequest.onBeforeRequest.addListener((details) => {
+    slider = views[0].document.getElementById("input").value + 1;
+    console.log("test", slider);
     // Load page if we aren't reloading within wait-time, the type is not main_frame,
     // the url is not the same as the last url, and the link is not malicious.
     if (wait || details.type !== "main_frame" || details.url === curURL || 
-            !isMalicious(details.url)) {
+            !isMalicious(details.url, slider)) {
         return {cancel: false};
     }
 
