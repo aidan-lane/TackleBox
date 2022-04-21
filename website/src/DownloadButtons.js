@@ -4,10 +4,11 @@ import firefox from './images/firefox_addon.svg'
 
 function DownloadButtons() {
 	return <div className="download-buttons">
-		<a href="https://google.com/">
+		<p className="downloads-soon">Downloads coming soon!</p>
+		<a href="#">
 			<img src={chrome}  alt="Go to Chrome Webstore"/>
 		</a>
-		<a href="https://mozilla.com">
+		<a href="#">
 			<img src={firefox}  alt="Go to Firefox Add-ons Store"/>
 		</a>
 	</div>
