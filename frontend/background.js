@@ -5,11 +5,12 @@
 const IS_DEV_MODE = !("update_url" in chrome.runtime.getManifest());
 var baseURL = "";
 
-if (IS_DEV_MODE) {
+if (false) {
     baseURL = "http://localhost:8080/api/score/";
 } else {
     baseURL = "https://tacklebox-server.herokuapp.com/api/score/";
 }
+
 /**
  * Determines whether the given link is malicious using the given threshold.
  *
@@ -21,21 +22,25 @@ if (IS_DEV_MODE) {
  * @return {Boolean}
  **/
 
-function isMalicious(url, thresh=3) {
+function isMalicious(url, thresh) {
     let realThresh = 0;
     if (thresh === 3) realThresh = 75;
     else if (thresh === 2) realThresh = 85;
     else if (thresh === 1) realThresh = 100;
 
-    return fetch(baseURL + encodeURIComponent(url))
-        .then(response => response.json())
-        .then(data => {
-            if (data.score >= realThresh) {
-                return true;
-            }
-            return false
-        })
-        .catch((_) => { return false; })
+    let result;
+
+    $.ajax({
+        url : baseURL + encodeURIComponent(url),
+        type : "get",
+        async: false,
+        success : function(data) {
+            result = data.score >= realThresh;
+        },
+        error: function() {}
+     });
+    
+    return result;
 }
 
 var curURL;  // Keep track of the current page
@@ -43,6 +48,13 @@ var curURL;  // Keep track of the current page
 var timer = null;
 var waitTime = 500;
 var wait = false;
+// Load threshold from storage.
+let thresh = 1;
+setInterval(() => {
+    chrome.storage.sync.get(["thresh"], function(result) {
+        thresh = parseInt(result.thresh) + 1;
+    });
+}, 1000);
 
 // Hook to get the current page's full URL
 chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
@@ -52,17 +64,15 @@ chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
 
 // Hook executed before page is loaded
 chrome.webRequest.onBeforeRequest.addListener((details) => {
-    // Load threshold from storage.
-    let thresh = 1;
-    chrome.storage.sync.get(['thresh'], function(result) {
-        thresh = result.thresh + 1;
-    });
-
     // Load page if we aren't reloading within wait-time, the type is not main_frame,
     // the url is not the same as the last url, and the link is not malicious.
     if (wait || details.type !== "main_frame" || details.url === curURL || 
-            !isMalicious(details.url, thresh) || details.url.includes("api/score") || 
-            details.url.includes("popup.html")) {
+            details.url.includes("localhost") || details.url.includes("popup.html") || 
+            !isMalicious(details.url, thresh)) {
+        return {cancel: false};
+    }
+
+    if (confirm("We found this website to possibly be malicious. Do you wish to continue?")) {
         return {cancel: false};
     }
 
