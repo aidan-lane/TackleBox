@@ -15,18 +15,6 @@ if (IS_DEV_MODE) {
 } else {
     baseURL = "https://tacklebox-server.herokuapp.com/api/score/";
 }
-
-// User-set score threshold
-var threshold = 1;
-
-/**
- * Determines whether the given link is malicious using the given threshold.
- *
- * @access private
- *
- * @param {String} url    url to be scored
- * @param {Number} thresh user-set security threshold value (1-3) with 3 being the most strict
- *
  * @return {Boolean}
  */
 function isMalicious(url, thresh=3) {
@@ -69,12 +57,14 @@ chrome.webRequest.onBeforeRequest.addListener((details) => {
         return {cancel: false};
     }
 
-    if (confirm("We found this website to possibly be malicious. Do you wish to continue?")) {
-        return {cancel: false};
+    let thresh = 0;
+    chrome.storage.sync.get(["thresh"], function(result) {
+        thresh = result.thresh;
+    });
     }
 
     // Prevent triggering this event twice
-    wait = true;
+    wait = true;thresh + 1
     clearInterval(timer);
     timer = setInterval(function () {
         wait = false;
