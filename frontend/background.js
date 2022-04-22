@@ -19,7 +19,8 @@ if (IS_DEV_MODE) {
  * @param {Number} thresh user-set security threshold value (1-3) with 3 being the most strict
  *
  * @return {Boolean}
- */
+ **/
+
 function isMalicious(url, thresh=3) {
     let realThresh = 0;
     if (thresh === 3) realThresh = 75;
@@ -51,19 +52,18 @@ chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
 
 // Hook executed before page is loaded
 chrome.webRequest.onBeforeRequest.addListener((details) => {
-    slider = views[0].document.getElementById("input").value + 1;
-    console.log("test", slider);
+    // Load threshold from storage.
+    let thresh = 1;
+    chrome.storage.sync.get(['thresh'], function(result) {
+        thresh = result.thresh + 1;
+    });
+
     // Load page if we aren't reloading within wait-time, the type is not main_frame,
     // the url is not the same as the last url, and the link is not malicious.
     if (wait || details.type !== "main_frame" || details.url === curURL || 
-            !isMalicious(details.url, slider)) {
+            !isMalicious(details.url, thresh) || details.url.includes("api/score") || 
+            details.url.includes("popup.html")) {
         return {cancel: false};
-    }
-
-    let thresh = 0;
-    chrome.storage.sync.get(['thresh'], function(result) {
-        thresh = result.thresh
-    });
     }
 
     // Prevent triggering this event twice
