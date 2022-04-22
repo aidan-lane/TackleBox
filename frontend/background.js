@@ -1,11 +1,6 @@
 // TackleBox 2022
 // Runs in background of extension
 
-// Get slider info from popup
-var sliderVal = 3;
-var views = chrome.extension.getViews();
-console.log(views);
-
 // Change backend API url based on if we're in devlopment or not
 const IS_DEV_MODE = !("update_url" in chrome.runtime.getManifest());
 var baseURL = "";
@@ -15,6 +10,14 @@ if (IS_DEV_MODE) {
 } else {
     baseURL = "https://tacklebox-server.herokuapp.com/api/score/";
 }
+/**
+ * Determines whether the given link is malicious using the given threshold.
+ *
+ * @access private
+ *
+ * @param {String} url    url to be scored
+ * @param {Number} thresh user-set security threshold value (1-3) with 3 being the most strict
+ *
  * @return {Boolean}
  */
 function isMalicious(url, thresh=3) {
@@ -58,13 +61,13 @@ chrome.webRequest.onBeforeRequest.addListener((details) => {
     }
 
     let thresh = 0;
-    chrome.storage.sync.get(["thresh"], function(result) {
-        thresh = result.thresh;
+    chrome.storage.sync.get(['thresh'], function(result) {
+        thresh = result.thresh
     });
     }
 
     // Prevent triggering this event twice
-    wait = true;thresh + 1
+    wait = true;
     clearInterval(timer);
     timer = setInterval(function () {
         wait = false;

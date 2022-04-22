@@ -34,13 +34,15 @@ img {
 .question {
     text-align: center;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 30px;
     line-height: 30px;
     letter-spacing: -.07em;
     text-shadow: white 2px 2px 2px;
     color: black;
     margin-top: 40px;
-  }
+    text-underline-offset: 5.5px;
+    text-decoration: rgb(111, 111, 111) wavy underline;
+}
 
 @import url(https://fonts.googleapis.com/css?family=Dosis:700);
 .value {
@@ -53,7 +55,7 @@ img {
   line-height: 30px;
   letter-spacing: -.07em;
   text-shadow: white 2px 2px 2px;
-  margin-top: 10px;
+  margin-top: 15px;
   margin-bottom: 10px;
 }
 input[type="range"] {
@@ -75,4 +77,14 @@ input[type="range"]::-webkit-slider-thumb {
   border: 2px solid white;
   cursor: pointer;
   transition: .3s ease-in-out;
+}
+
+.form-field[type="text"]{
+  display: block;
+  font-size: 15px;
+  background-color: rgb(231, 231, 231);
+  width: 300px;
+  height: 30px;
+  border-radius: 5px;
+  color:black;
 }
